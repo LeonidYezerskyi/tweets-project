@@ -1,8 +1,39 @@
+import { useState, useEffect } from 'react';
+
+import FollowButton from "../FollowButton/FollowButton"
 import css from "./FollowerCount.module.css"
 
 const FollowerCount = () => {
+    const [followerCount, setFollowerCount] = useState(100500);
+    useEffect(() => {
+        const followerCount = JSON.parse(localStorage.getItem('followerCount'));
+        if (followerCount === 100501) {
+            setFollowerCount(followerCount)
+        }
+
+    }, []);
+
+    const handleButtonClick = (isFollowing) => {
+        if (isFollowing === true) {
+            setFollowerCount(prevCount => prevCount + 1)
+        } else {
+            setFollowerCount(prevCount => prevCount - 1)
+        }
+
+    }
+
+    useEffect(() => {
+        localStorage.setItem('followerCount', JSON.stringify(followerCount));
+    }, [followerCount]);
+
+    const formattedFollowerCount = new Intl.NumberFormat('en-US', { style: 'decimal' }).format(followerCount);
+
     return (
-        <p className={css.followerInfo}>100,501 followers</p>
+        <>
+            <p className={css.followerInfo}>{formattedFollowerCount} followers</p>
+            <FollowButton handleButtonClick={handleButtonClick} />
+        </>
+
     )
 }
 
