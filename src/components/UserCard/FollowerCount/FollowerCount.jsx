@@ -22,7 +22,6 @@ const FollowerCount = ({ followers, id }) => {
 
     useEffect(() => {
         localStorage.setItem(`followerCount_${id}`, JSON.stringify(followerCount));
-        console.log(followerCount);
     }, [id, followerCount]);
 
     const formattedFollowerCount = new Intl.NumberFormat('en-US', { style: 'decimal' }).format(followerCount);

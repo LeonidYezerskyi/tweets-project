@@ -6,6 +6,7 @@ import FollowerCount from "./FollowerCount/FollowerCount"
 import Logo from "./Logo/Logo"
 import TweetCount from "./TweetCount/TweetCount"
 import css from "./UserCard.module.css"
+import Name from "./Name/Name";
 
 const UserCard = ({ user, tweets, followers, src, id }) => {
     return (
@@ -14,6 +15,7 @@ const UserCard = ({ user, tweets, followers, src, id }) => {
                 <Logo />
                 <CardImage />
                 <Avatar src={src} />
+                <Name user={user} />
                 <TweetCount tweets={tweets} />
                 <FollowerCount followers={followers} id={id} />
             </section>

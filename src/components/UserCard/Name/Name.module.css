@@ -1,0 +1,10 @@
+.name {
+    font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 22px;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        color: rgb(235, 216, 255);
+        margin-top: 90px;
+}
