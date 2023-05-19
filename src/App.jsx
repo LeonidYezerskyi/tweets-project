@@ -1,17 +1,29 @@
 
-import './App.css'
-// import UserCard from './components/UserCard/UserCard'
-import Users from './components/Users/Users'
+import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import cn from 'classnames';
+
+import css from './App.module.css'
+import HomePage from './components/pages/HomePage/HomePage'
+import TweetsPage from './components/pages/TweetsPage/TweetsPage'
+
 
 function App() {
 
   return (
-    <>
-      <div>
-        <Users />
-        {/* <UserCard /> */}
-      </div>
-    </>
+    <div>
+      <nav className={css.navMenu}>
+        <NavLink to="/" className={({ isActive }) =>
+          cn(css.tabPage, { [css.active]: isActive, })}>Home</NavLink >
+        <NavLink to="/tweets" className={({ isActive }) =>
+          cn(css.tabPage, { [css.active]: isActive, })}>Tweets</NavLink >
+      </nav>
+
+      <Routes >
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tweets" element={<TweetsPage />} />
+        <Route path="*" element={<Outlet />} />
+      </Routes>
+    </div>
   )
 }
 

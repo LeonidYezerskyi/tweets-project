@@ -36,7 +36,7 @@ const Users = () => {
                     return <UserCard key={id} user={user} tweets={tweets} followers={followers} src={avatar} id={id} />
                 })}
             </ul>
-            {users.length > 0 && <Button onClick={onClickBtn} />}
+            {users.length > 0 && users.length < 10 && <Button onClick={onClickBtn} />}
         </div>
     )
 }
