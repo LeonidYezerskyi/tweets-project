@@ -1,10 +1,9 @@
-
-import { NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import cn from 'classnames';
 
 import css from './App.module.css'
-import HomePage from './components/pages/HomePage/HomePage'
-import TweetsPage from './components/pages/TweetsPage/TweetsPage'
+import HomePage from './pages/HomePage/HomePage'
+import TweetsPage from './pages/TweetsPage/TweetsPage'
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
       <Routes >
         <Route path="/" element={<HomePage />} />
         <Route path="/tweets" element={<TweetsPage />} />
-        <Route path="*" element={<Outlet />} />
+        <Route path="/*" element={<HomePage />} />
       </Routes>
     </div>
   )
