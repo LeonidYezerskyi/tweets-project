@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import FollowButton from "../FollowButton/FollowButton"
 import css from "./FollowerCount.module.css"
 
-const FollowerCount = () => {
+const FollowerCount = ({ followers }) => {
     const [followerCount, setFollowerCount] = useState(100500);
     useEffect(() => {
         const followerCount = JSON.parse(localStorage.getItem('followerCount'));
@@ -14,12 +14,11 @@ const FollowerCount = () => {
     }, []);
 
     const handleButtonClick = (isFollowing) => {
-        if (isFollowing === true) {
+        if (isFollowing) {
             setFollowerCount(prevCount => prevCount + 1)
         } else {
             setFollowerCount(prevCount => prevCount - 1)
         }
-
     }
 
     useEffect(() => {

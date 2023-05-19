@@ -5,16 +5,17 @@ import Logo from "./Logo/Logo"
 import TweetCount from "./TweetCount/TweetCount"
 import css from "./UserCard.module.css"
 
-const UserCard = () => {
-
+const UserCard = ({ user, tweets, followers, src, id }) => {
     return (
-        <section className={css.container}>
-            <Logo />
-            <CardImage />
-            <Avatar />
-            <TweetCount />
-            <FollowerCount />
-        </section>
+        <li key={id}>
+            <section className={css.container}>
+                <Logo />
+                <CardImage />
+                <Avatar src={src} />
+                <TweetCount tweets={tweets} />
+                <FollowerCount followers={followers} />
+            </section>
+        </li>
     )
 }
 

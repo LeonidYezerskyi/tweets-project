@@ -14,9 +14,9 @@ const FollowButton = ({ handleButtonClick }) => {
     }, []);
 
     const onFollow = (e) => {
+        e.preventDefault();
         setIsFollowing(!isFollowing)
         handleButtonClick(!isFollowing)
-        e.preventDefault();
     }
 
     useEffect(() => {
