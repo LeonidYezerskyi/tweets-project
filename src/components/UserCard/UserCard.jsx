@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import Avatar from "./Avatar/Avatar"
 import CardImage from "./CardImage/CardImage"
 import FollowerCount from "./FollowerCount/FollowerCount"
@@ -13,10 +15,18 @@ const UserCard = ({ user, tweets, followers, src, id }) => {
                 <CardImage />
                 <Avatar src={src} />
                 <TweetCount tweets={tweets} />
-                <FollowerCount followers={followers} />
+                <FollowerCount followers={followers} id={id} />
             </section>
         </li>
     )
 }
+
+UserCard.propTypes = {
+    user: PropTypes.string.isRequired,
+    tweets: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    src: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+};
 
 export default UserCard

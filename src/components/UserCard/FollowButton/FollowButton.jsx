@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 
 import css from "./FollowButton.module.css";
 
-const FollowButton = ({ handleButtonClick }) => {
+const FollowButton = ({ handleButtonClick, id }) => {
     const [isFollowing, setIsFollowing] = useState(false);
 
     useEffect(() => {
-        const storedIsFollowing = JSON.parse(localStorage.getItem('isFollowing'));
+        const storedIsFollowing = JSON.parse(localStorage.getItem(`isFollowing_${id}`));
         if (storedIsFollowing) {
             setIsFollowing(storedIsFollowing);
         }
-    }, []);
+    }, [id]);
 
     const onFollow = (e) => {
         e.preventDefault();
@@ -20,8 +20,8 @@ const FollowButton = ({ handleButtonClick }) => {
     }
 
     useEffect(() => {
-        localStorage.setItem('isFollowing', JSON.stringify(isFollowing));
-    }, [isFollowing]);
+        localStorage.setItem(`isFollowing_${id}`, JSON.stringify(isFollowing));
+    }, [id, isFollowing]);
 
     return (
         <button className={css.btn} style={{ background: isFollowing ? '#5CD3A8' : '#EBD8FF' }} type="button" onClick={onFollow}>
@@ -32,6 +32,7 @@ const FollowButton = ({ handleButtonClick }) => {
 
 FollowButton.propTypes = {
     handleButtonClick: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
 };
 
 export default FollowButton
