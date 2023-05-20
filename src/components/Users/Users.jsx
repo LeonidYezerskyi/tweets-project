@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-
-import UserCard from '../UserCard/UserCard';
-import { getUsers } from '../../services/api';
 import css from './Users.module.css';
-import Button from './Button/Button';
+import UserCard from '../UserCard/UserCard';
+import ButtonLoadMore from './ButtonLoadMore/ButtonLoadMore';
+import { getUsers } from '../../services/api';
+import Loader from './Loader/Loader';
 
 const Users = ({ filter }) => {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [page, setPage] = useState(1);
     const [followingList, setFollowingList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const storedFollowingList = JSON.parse(localStorage.getItem("following"));
@@ -19,6 +20,8 @@ const Users = ({ filter }) => {
 
     const fetchUsers = async () => {
         try {
+            setIsLoading(true);
+
             const response = await getUsers(page);
 
             setUsers((prevUsers) => {
@@ -27,6 +30,8 @@ const Users = ({ filter }) => {
             });
         } catch (error) {
             console.error('Error fetching users:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -55,17 +60,29 @@ const Users = ({ filter }) => {
             <ul className={css.list}>
                 {filteredUsers.map(({ user, tweets, followers, avatar, id }) => {
                     return (
-                        <UserCard key={id} user={user} tweets={tweets} followers={followers} src={avatar} id={id} followingList={followingList} setFollowingList={setFollowingList} />
+                        <UserCard
+                            key={id}
+                            user={user}
+                            tweets={tweets}
+                            followers={followers}
+                            src={avatar}
+                            id={id}
+                            followingList={followingList}
+                            setFollowingList={setFollowingList}
+                        />
                     );
                 })}
             </ul>
-            {filteredUsers.length > 0 && filteredUsers.length < 10 && <Button onClick={onClickBtn} />}
+            {isLoading && <Loader style={{ marginBottom: "70px" }} />}
+
+            {filteredUsers.length > 0 && filteredUsers.length < 10 && <ButtonLoadMore onClick={onClickBtn} />}
         </div>
     );
 };
 
 Users.propTypes = {
     filter: PropTypes.string.isRequired,
+    setIsLoading: PropTypes.func.isRequired,
 };
 
 export default Users;

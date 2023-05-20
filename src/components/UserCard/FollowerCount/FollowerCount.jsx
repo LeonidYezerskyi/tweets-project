@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
-
 import FollowButton from '../FollowButton/FollowButton';
 import css from './FollowerCount.module.css';
 

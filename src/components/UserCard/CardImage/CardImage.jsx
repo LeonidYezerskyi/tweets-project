@@ -1,5 +1,5 @@
-import cardImg from "../../../assets/CardImg.png"
 import css from "./CardImage.module.css"
+import cardImg from "../../../assets/CardImg.png"
 
 const CardImage = () => {
     return (

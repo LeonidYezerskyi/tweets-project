@@ -1,11 +1,11 @@
 .info {
     font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 60px;
-        line-height: 110px;
-        letter-spacing: 0.7px;
-        color: #250275;
-        text-shadow: 18px 50px 7px rgb(80, 77, 77);
-        text-align: center;
-        margin: 50px 80px 0 80px;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 110px;
+    letter-spacing: 0.7px;
+    color: #250275;
+    text-shadow: 18px 50px 7px rgb(80, 77, 77);
+    text-align: center;
+    margin: 50px 80px 0 80px;
 }

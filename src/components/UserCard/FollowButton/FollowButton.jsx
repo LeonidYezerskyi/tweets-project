@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
-
 import css from "./FollowButton.module.css";
 
 const FollowButton = ({ handleButtonClick, id }) => {

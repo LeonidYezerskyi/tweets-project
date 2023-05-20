@@ -1,34 +1,20 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState } from 'react'
+import css from "./TweetsPage.module.css"
 import Users from "../../components/Users/Users"
 import FilterDropdown from "../../components/Users/FilterDropdown/FilterDropdown"
-import css from "./TweetsPage.module.css"
-import arrow from '../../assets/arrow.svg';
+import ButtonGoBack from '../../components/Users/ButtonGoBack/ButtonGoBack'
 
 const TweetsPage = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
     const [selectedFilter, setSelectedFilter] = useState('show all');
-
-    const handleGoBack = () => {
-        if (location.state) {
-            navigate(location.state.from);
-        } else {
-            navigate('/');
-        }
-    }
 
     const handleFilterChange = (selectedValue) => {
         setSelectedFilter(selectedValue);
     };
 
     return (
-        <div>
+        <div >
             <div className={css.btnWrapper}>
-                <button className={css.button} onClick={handleGoBack}>
-                    <img src={arrow} alt="arrow" width="15" />
-                    Go back
-                </button>
+                <ButtonGoBack />
                 <FilterDropdown onChange={handleFilterChange} />
             </div>
             <Users filter={selectedFilter} />

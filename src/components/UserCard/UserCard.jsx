@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-
-import Avatar from './Avatar/Avatar';
-import CardImage from './CardImage/CardImage';
-import FollowerCount from './FollowerCount/FollowerCount';
-import Logo from './Logo/Logo';
-import TweetCount from './TweetCount/TweetCount';
 import css from './UserCard.module.css';
+import Logo from './Logo/Logo';
+import CardImage from './CardImage/CardImage';
+import Avatar from './Avatar/Avatar';
 import Name from './Name/Name';
+import TweetCount from './TweetCount/TweetCount';
+import FollowerCount from './FollowerCount/FollowerCount';
 
 const UserCard = ({ user, tweets, followers, src, id, followingList, setFollowingList }) => {
 
