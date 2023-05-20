@@ -1,0 +1,36 @@
+.filterWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 90px;
+    margin-top: 10px;
+}
+
+.label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 22px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.select {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    border: 3px solid black;
+    background-color: rgb(160, 160, 160);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.select:hover {
+    color: black;
+
+}

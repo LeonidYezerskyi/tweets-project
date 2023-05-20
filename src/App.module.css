@@ -21,16 +21,21 @@
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 30px;
-  background-color: rgb(225, 252, 92);
+  background-color: rgb(211, 250, 16);
   color: black;
   border: 3px solid transparent;
   border-radius: 15px 15px 15px 15px;
   transition: all .3s;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .tabPage.active {
   background-color: #5736A3;
-  border: 3px solid rgb(24, 12, 12);
   color: white;
+}
+
+.tabPage:hover {
+    transform: translateY(-5px);
+  border: 3px solid rgb(24, 12, 12);
 }
