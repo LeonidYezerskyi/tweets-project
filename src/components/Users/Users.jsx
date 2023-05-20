@@ -14,7 +14,7 @@ const Users = ({ filter }) => {
 
     useEffect(() => {
         const storedFollowingList = JSON.parse(localStorage.getItem("following"));
-        setFollowingList(storedFollowingList)
+        setFollowingList(storedFollowingList || [])
     }, [])
 
     const fetchUsers = async () => {
@@ -40,7 +40,6 @@ const Users = ({ filter }) => {
             updatedUsers = users;
         } else if (filter === 'follow') {
             updatedUsers = users.filter((user) => !followingList.includes(user.id));
-            console.log(users)
         } else if (filter === 'followings') {
             updatedUsers = users.filter((user) => followingList.includes(user.id));
         }

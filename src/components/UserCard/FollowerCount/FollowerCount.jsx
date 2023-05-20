@@ -5,6 +5,7 @@ import FollowButton from '../FollowButton/FollowButton';
 import css from './FollowerCount.module.css';
 
 const FollowerCount = ({ followers, id, followingList, setFollowingList }) => {
+
     const initialFollowerCount = useMemo(() => {
         const storedFollowerCount = JSON.parse(localStorage.getItem(`followerCount_${id}`));
         return storedFollowerCount !== null ? storedFollowerCount : followers;

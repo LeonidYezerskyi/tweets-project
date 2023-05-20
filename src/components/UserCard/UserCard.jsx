@@ -9,6 +9,7 @@ import css from './UserCard.module.css';
 import Name from './Name/Name';
 
 const UserCard = ({ user, tweets, followers, src, id, followingList, setFollowingList }) => {
+
     return (
         <li key={id}>
             <section className={css.container}>
