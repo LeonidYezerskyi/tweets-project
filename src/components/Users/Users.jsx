@@ -82,7 +82,6 @@ const Users = ({ filter }) => {
 
 Users.propTypes = {
     filter: PropTypes.string.isRequired,
-    setIsLoading: PropTypes.func.isRequired,
 };
 
 export default Users;
